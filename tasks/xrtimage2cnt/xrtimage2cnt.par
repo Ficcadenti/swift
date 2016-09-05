@@ -1,0 +1,6 @@
+infile,f,a,"",,,"Name of the input Image FITS file in Sky coordinates"
+outfile,f,a,"DEFAULT",,,"Name of the output count Image FITS file or DEFAULT for standard name"
+clobber,b,h,no,,,"Overwrite existing output file (if outfile!= NONE)?"
+history,b,h,yes,,,"Write HISTORY keywords in output file?"
+chatter,i,h,2,0,5,"Chatter Level"
+mode,s,h,"ql",,,"Mode"

@@ -1,0 +1,52 @@
+<! XRTTIMEREC (Mar2002)  >                           
+<html>
+<head>
+<style type="text/css">
+  body { margin-left: 5%; margin-right: 5%; }
+  h1,h2,h3,h4 { margin-left: -5%;}
+</style>
+<title>xrttimerec help file</title>
+</head>
+
+<body>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#9690CC">
+<h2>NAME</h2>
+xrttimerec -- 
+<h2>USAGE</h2>
+<tt>xrttimerec infile [parameter=value ... ]</tt>
+<h2>DESCRIPTION</h2>
+<h2>PARAMETERS</h2>
+<dl>
+<dt>infile [file name]
+<dd>The  FITS  file name and  extension from which the photon counting 
+PHAS column must be read.
+<p>    
+<dt>outfile [file name]
+<dd>The new FITS file with the PHA, GRADE and PixsAbove  columns filled. If 'NONE' is input, the input file will be overwritten.
+<p>
+<dt>(split = 40) [integer]
+<dd>The split threshold level desired. If set to a negative value the on board split threshold (read form the input file keyword 'SPLITTHR') is used.
+<p>
+<dt>(history=yes) [boolean]
+<dd>Write parameter values and other information in HISTORY blocks.
+<p>
+<dt>(clobber=no) [boolean]
+<dd>Overwrite the output file.
+<p>
+<dt>(chatter = 2) [integer]
+<dd>Verbosity Level from 0 to 5
+</dl>    
+<h2>EXAMPLES</h2>
+<ol>
+<li>
+<p>
+<pre>
+</ol>
+<h2>BUGS</h2>
+<h2>SEE ALSO</h2>
+<h2>LAST MODIFIED</h2>
+FEB 2003
+</body>
+</html>
+
+

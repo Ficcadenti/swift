@@ -1,0 +1,99 @@
+<! XRTPH2BR (Mar2002)  >                           
+<html>
+<head>
+<style type="text/css">
+  body { margin-left: 5%; margin-right: 5%; }
+  h1,h2,h3,h4 { margin-left: -5%;}
+</style>
+<title>xrtph2br help file</title>
+</head>
+
+<body>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#9690CC">
+<h2>NAME</h2>
+xrtph2br -- Calculates a single PHA value and assigns event grade.
+<h2>USAGE</h2>
+<tt>xrtph2br infile outfile [parameter=value ... ]</tt>
+<h2>DESCRIPTION</h2>
+This task processes SWIFT XRT Photon Counting mode event files, 
+calculates a single PHA value and assigns event grade.
+<p>
+In the Photon Counting Mode each event has associated nine PHA values, stored 
+in the column PHAS, corresponding to the central pixel and to the eight 
+surrounding pixels.
+The  task reads the PHAS column with the 9 elements, calculates a 
+single value for the event PHA and writes it in the PHA column of
+the output file. The computation of the PHA is done summing up all the PHA
+ values of the pixels above split threshold. The grade values assigned by
+the routine are written in the column GRADE of the output file. 
+The number of pixels above the split threshold, considered in the computation 
+of the PHA value, is stored in the column named PixsAbove.  
+The grade values are assigned  following the XMM pattern  
+definition. A file with the definition of the grade values has been 
+included in the CALDB.
+The input event file can be supplied in the compressed format except for the
+case of outfile=NONE  when the input file should be overwritten.
+All other columns of the EVENTS extension and the GTI extension of the input 
+file will be copied unchanged to the output file.
+<p> 
+The task allows also to assign grades following the ASCA convention if the
+option 'ascagrade' is set to 'yes'.In this
+case the computation is done using the routine  originally  developed for the 
+ASCA task 'faint', so it is dependent on the ASCA convention of 
+'grade' description. The routine ignores the corner pixels in the computation 
+of the PHA value, except in the case of grade 6 where a corner pixel is 
+included.
+The results of this computation are included in the two columns ASCAPHA and 
+ASCAGRADE. This option is included only for comparison purposes and if
+selected both the XMM and ASCA grades are included in the output file.
+Grade selection of the data should be derived using the XMM pattern
+convention.
+The keywords of the Data Subspace convention (DS keywords) recording
+the event grade values present in the file (DSVALn, DSTYPn, DSFORMn ),
+ are added to the file. These keywords are updated by other tasks 
+for recording the screening eventually performed.
+<h2>PARAMETERS</h2>
+<dl>
+<dt>infile [file name]
+<dd>The  FITS  file name from which the photon counting 
+PHAS column must be read.
+<p>    
+<dt>outfile [file name]
+<dd>The new FITS file with the PHA, GRADE and PixsAbove  columns filled. If 'NONE' is input, the input file will be overwritten.
+<p>    
+<dt>(gradefile = CALDB )[file name]
+<dd>Name of input GRADE file. Input 'CALDB' (default) to get calibration file.
+<p>
+<dt>(split = 40) [integer]
+<dd>The split threshold level desired. If set to a negative value the on board split threshold 
+(read from the input file keyword 'SPLITTHR') is used.
+<p>
+<dt>(ascagrade = no) [boolean]
+<dd>Calculate the grades according with the ASCA pattern? The results will be
+written in the 'ASCAPHA' and 'ASCAGRADE' new columns 
+<p>
+<dt>(history=yes) [boolean]
+<dd>Write parameter values and other information in HISTORY blocks.
+<p>
+<dt>(clobber=no) [boolean]
+<dd>If 'clobber'=yes and outfile=filename, the file with the same name
+will be  overwritten if it exists.
+<p>
+<dt>(chatter = 2) [integer]
+<dd>Verbosity Level from 0 to 5
+</dl>    
+<h2>EXAMPLES</h2>
+<ol>
+<li>Calculate PHA and GRADE values for a Photon counting mode event file, write the
+ output in the file 'outfile.fits'  and use the maximum verbosity level.
+<p>
+<pre>ft> xrtph2br sw00073232001xpcw0pl1.evt.gz outfile.fits  chatter=5</pre>
+</ol>
+<h2>BUGS</h2>
+<h2>SEE ALSO</h2>
+<h2>LAST MODIFIED</h2>
+NOV 2003
+</body>
+</html>
+
+

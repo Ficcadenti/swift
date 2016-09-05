@@ -1,0 +1,69 @@
+<! XRTPH1SIM (Mar2002) >
+<html>
+<head>
+<style type="text/css">
+  body { margin-left: 5%; margin-right: 5%; }
+  h1,h2,h3,h4 { margin-left: -5%;}
+</style>
+<title>xrtph1sim help file</title>
+</head>
+
+<body>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#9690CC">
+<h2>NAME</h2>
+xrtph1sim --  Converts ASCA FITS files to Swift XRT Photon Counting 
+Events FITS files.
+
+<h2>USAGE</h2>
+<tt>xrtph1sim infile outfile dateobs timeobs</tt>	
+<h2>DESCRIPTION</h2>
+The XRT Photon Counting mode maps onto the ASCA SIS mode called Faint. 
+This data collecting mode returns the PHA value of a 3x3 box around each 
+event. We decided to build a Level1 event file of Swift XRT, for software 
+developing purposes, using the data collected by ASCA SIS. 
+This  task creates an XRT Photon Counting events FITS file containing an 
+EVENTS binary table extension and a GTI binary table extension by reading
+ASCA Faint events FITS file. Some columns present in the ASCA input file 
+will be processed and written to the output file.
+<h2>PARAMETERS</h2>
+<dl>
+<dt>infile [asca file name]
+<dd>The name of the ASCA Faint events FITS file to be processed and 
+converted into the XRT Photon counting events file. 
+<p>    
+<dt>outfile [output file name]
+<dd>The name of the output file. The FITS file will have an empty primary 
+array followed by two extensions.
+<p>    
+<dt>dateobs [string]
+<dd>Observation start date. The format must be: yyyy-mm-dd
+<p>   
+<dt>timeobs [string]
+<dd>Observation start time. The format must be hh:mm:ss
+<p>
+<dt>(clobber = no) [boolean]
+<dd>If true, an existing file with the same name as the specified output 
+file will be overwritten.
+<p>   
+<dt>(chatter = 2) [integer]
+<dd>Verbosity level, from 0 to 5.
+<p>
+<dt>(history = yes) [boolean]
+<dd>Write parameter values in HISTORY block.  
+</dl>
+
+<h2>EXAMPLES</h2>
+<ol>
+<li>Create a  FITS file called 'xrtph1out.fits' from an ASCA file called
+'ascafile.fits'.
+<p>
+<pre>ft> xrtph1sim ascafile.fits xrtphout.fits clobber=no verbosity=5</pre>
+The command line above unset clobber and set the maximum verbosity level.
+</ol>
+<h2>BUGS</h2>
+<h2>SEE ALSO</h2>
+<h2>LAST MODIFIED</h2>
+MARCH 2002
+
+</body>
+</html>

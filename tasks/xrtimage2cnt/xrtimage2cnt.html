@@ -1,0 +1,63 @@
+<! XRTIMAGE2CNT (Nov2003)  >                           
+<html>
+<head>
+<style type="text/css">
+  body { margin-left: 5%; margin-right: 5%; }
+  h1,h2,h3,h4 { margin-left: -5%;}
+</style>
+<title>xrtimage2cnt help file</title>
+</head>
+<body>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#9690CC">
+<h2>NAME</h2>
+xrtimage2cnt -- Generate a sky coordinates counts image from Level 2 Imaging Mode files.
+
+<h2>USAGE</h2>
+<tt>xrtimage2cnt infile outfile [parameter=value ...]</tt>
+<h2>DESCRIPTION</h2>
+
+The task creates counts images starting from Level 2 Imaging mode files.
+<br>
+Swift XRT Imaging Mode data are stored in
+image extensions of a FITS file each one containing the DN values of the 
+pixels exceeding the Lower Level Discriminator threshold for a single frame
+and their position in RAW coordinates. 
+After the processing of the Imaging mode files and 
+the RAW to SKY coordinate transformation  it is possible
+to merge data from different frames using this task to generate a counts image 
+in sky coordinates that can be used for the spatial analysis.
+
+
+<h2>PARAMETERS</h2>
+<dl>
+<dt>infile [file name]
+<dd>The input FITS Imaging mode file name.
+<p>    
+<dt>countfile [file name]
+<dd>The output FITS file name. DEFAULT to use standard naming convention.
+<p>
+<dt>(history=yes) [boolean]
+<dd>Write parameter values and other information in HISTORY blocks.
+<p>
+<dt>(clobber=no) [boolean]
+<dd>If 'clobber'= yes a output file with the same name
+will be  overwritten if it exists.
+<p>
+<dt>(chatter = 2) [integer]
+<dd>Verbosity Level (from 0 to 5).
+</dl>    
+<h2>EXAMPLES</h2>
+<ol>
+<li>
+<p>
+<pre>ft> xrtimage2cnt sw00073149002xim00praw.img.gz DEFAULT chatter=5
+</pre>
+</ol>
+<h2>BUGS</h2>
+<h2>SEE ALSO</h2>
+<h2>LAST MODIFIED</h2>
+NOV 2003
+</body>
+</html>
+
+

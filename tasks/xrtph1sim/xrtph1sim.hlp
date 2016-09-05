@@ -1,0 +1,51 @@
+.help xrtph1sim Ott 2001 
+.ih
+NAME
+xrtph1sim --  Convert asca FITS file in Swift XRT Photon Counting 
+Events FITS file.
+.ih
+USAGE
+xrtph1sim infile outfile dateobs timeobs	
+.ih
+DESCRIPTION
+This  task  creates a Photon counting events FITS file 
+containing a events bin-table extension
+and a GTI bin-table extension  by reading asca faint events fits file.
+Some specified asca columns will be processed and written to the Photon counting FITS table.
+.ih
+PARAMETERS
+.ls infile = "" [asca file name]
+The name of the asca faint events fits file which is processed and converted
+in the  Photon counting events file. 
+.le 
+.ls outfile= "" [output file name]
+The name of the output file. The FITS file will
+have an empty primary array followed by two extensions.
+.le 
+.ls dateobs=""
+Observation start date. The right format is: yyyy-mm-dd.
+.le
+.ls timeobs=""
+Observation start time. The right format is hh:mm:ss
+.le
+.ls (clobber = no) [boolean]
+If true, an existing file with the same name as the requestion output file
+will be overwritten.
+.le
+.ls verbosity=
+There are four verbosity levels: MUTE, SILENT, NORMAL, CHATTY.
+.le
+.ih
+EXAMPLES
+1. Create a  FITS file called 'xrtph1out.fits' from a asca file called
+'ascafile.fits'.
+.nf
+
+     ft> xrtph1sim ascafile.fits xrtphout.fits clobber=no verbosity=3
+
+The command line above unset clobber and set the maximum verbosity level.
+.fi
+.ih
+BUGS
+.ih
+.endhelp

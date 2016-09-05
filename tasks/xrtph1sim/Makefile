@@ -1,0 +1,26 @@
+HD_COMPONENT_NAME	= swift
+
+HD_COMPONENT_VERS	=
+
+HD_TASK_c		= xrtph1sim
+
+HD_TASK_SRC_c		= xrtph1sim.c
+
+HD_INSTALL_TASKS	= ${HD_TASK_c}
+
+HD_INSTALL_PFILES	= xrtph1sim.par
+
+HD_INSTALL_HELP		= xrtph1sim.html
+
+HD_DISTCLEAN		=${HD_TASK_c}
+
+HD_LINK_LIBS		=${SW_LIB_PATH} -L${HDC_LIB} -lswxrt ${SW_STD_LINK_LIBS} ${SYSLIBS} ${F77LIBS4C}
+
+LOC_CFLAGS		= -I./ ${SW_INC_PATH} -I${HDC_INC}
+
+
+include ${HD_STD_MAKEFILE}
+
+
+
+

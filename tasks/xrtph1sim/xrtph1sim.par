@@ -1,0 +1,8 @@
+infile,f,a,"asca_faint.fits",,,"Enter a name for input file:"
+outfile,f,a,"xrtph1_faint.fits",,,"Enter a name for output file:"
+dateobs,s,a,"2002-06-23",,,"Enter the observation start  date:"
+timeobs,s,a,"23:45:00",,,"Enter the observation start  time:"
+chatter,i,h,2,0,5,"Program verbosity level:"
+clobber,b,h,no,,,"Delete outfile if it exists:"
+history,b,h,yes,,,"Write history?"
+mode,s,h,"ql",,,""
